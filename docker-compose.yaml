@@ -2,7 +2,7 @@ version: '3'
 
 services:
   spark:
-    image: bitnami/spark:3.3
+    image: bitnami/spark:3.3.1
     environment:
       - SPARK_MODE=master
     ports:
@@ -12,7 +12,7 @@ services:
       - ./data:/data
       - ./src:/src
   spark-worker:
-    image: bitnami/spark:3.3
+    image: bitnami/spark:3.3.1
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
@@ -25,7 +25,7 @@ services:
       - ./data:/data
       - ./src:/src
   jupyter:
-    image: jupyter/pyspark-notebook
+    image: jupyter/pyspark-notebook:spark-3.3.1
     ports:
       - '8889:8888'
     volumes:
